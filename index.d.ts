@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,32 +16,35 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { float64ndarray, uint8ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the range of a one-dimensional double-precision floating-point ndarray according to a mask, ignoring `NaN` values.
+* Calculates the range of a one-dimensional double-precision floating-point ndarray according to a mask, ignoring `NaN` values.
 *
-* @module @stdlib/stats-base-ndarray-dnanmskrange
+* @param arrays - array-like object containing an input ndarray and a mask ndarray
+* @returns range
 *
 * @example
+* var Float64Array = require( '@stdlib/array-float64' );
+* var Uint8Array = require( '@stdlib/array-uint8' );
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
-* var dnanmskrange = require( '@stdlib/stats-base-ndarray-dnanmskrange' );
 *
-* var xbuf = [ 1.0, -2.0, 4.0, 2.0, NaN ];
+* var xbuf = new Float64Array( [ 1.0, -2.0, 4.0, 2.0, NaN ] );
 * var x = new ndarray( 'float64', xbuf, [ 5 ], [ 1 ], 0, 'row-major' );
 *
-* var maskbuf = [ 0, 0, 1, 0, 0 ];
+* var maskbuf = new Uint8Array( [ 0, 0, 1, 0, 0 ] );
 * var mask = new ndarray( 'uint8', maskbuf, [ 5 ], [ 1 ], 0, 'row-major' );
 *
 * var v = dnanmskrange( [ x, mask ] );
 * // returns 4.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function dnanmskrange( arrays: [ float64ndarray, uint8ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = dnanmskrange;
